@@ -1,5 +1,5 @@
 
-const url = 'http://api.weatherstack.com/current?access_key=314dba1f7ce9b795db07d72e2cd0bbb2&query=boston'
+//const url = 'http://api.weatherstack.com/current?access_key=992afebd6d1df33600a1427e97eb1437&query='
 
 
 const weatherForm = document.querySelector('form')
@@ -12,7 +12,8 @@ weatherForm.addEventListener('submit', (e) => {
     const location = search.value
     messageOne.textContent="Loading....."
     messageTwo.textContent=''
-    fetch('/weather?address=' + location).then((response) => {
+    fetch('/weather?address='+location).then((response) => {
+        console.log(response)
         response.json().then((data) => {
             if(response.status !== 200){
                 console.log('Looks like there was a problem. Status Code: ' +response.status);

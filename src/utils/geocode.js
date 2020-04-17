@@ -1,7 +1,7 @@
 const request =require('request')
 
 const geocode=(country,callback)=>{
-    const url='https://api.weatherstack.com/current?access_key=314dba1f7ce9b795db07d72e2cd0bbb2&query='+country+''
+    const url='http://api.weatherstack.com/current?access_key=992afebd6d1df33600a1427e97eb1437&query='+country+''
     
     request({url :url,json :true},(error,response)=>{
         if(error){
