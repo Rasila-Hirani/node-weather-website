@@ -5,15 +5,21 @@
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
-const messageTwo = document.querySelector('#message-2')
+const w_icon = document.querySelector('#weather-icon')
+const weather = document.querySelector('#weather')
+const temperature = document.querySelector('#temperature')
+const rainchance = document.querySelector('#rainchance')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value
     messageOne.textContent="Loading....."
-    messageTwo.textContent=''
+    w_icon.src=''
+    weather.textContent=''
+    temperature.textContent=''
+    rainchance.textContent=''
     fetch('/weather?address='+location).then((response) => {
-        console.log(response)
+       
         response.json().then((data) => {
             if(response.status !== 200){
                 console.log('Looks like there was a problem. Status Code: ' +response.status);
@@ -23,7 +29,11 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent=data.error
             } else {
                 messageOne.textContent=data.location
-                messageTwo.textContent=data.forecast
+                w_icon.src=data.weather_icon
+                weather.textContent=data.weather
+                temperature.textContent="Temperature: "+data.temperature+" ℃"
+                rainchance.textContent="Rain Chance: "+data.rainchance              
+               
             }
         })
            

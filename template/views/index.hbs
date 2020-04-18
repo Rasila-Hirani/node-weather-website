@@ -1,6 +1,8 @@
 <!DOCTYPE html> 
 <html>  
 <head> 
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/styles.css">    
     
  </head>  
@@ -10,11 +12,24 @@
 
         <p>Use this site to get your weather!</p>
         <form>
-            <input placeholder="Location">   
-            <button>Search</button>
+            <input placeholder="Location" class="input-box">   
+            <button class="input-box btn">Search</button>
         </form> 
-        <p id="message-1"></p>
-        <p id="message-2"></p>
+        
+        <div class="container">
+            <div class="main_left">               
+                <p id="message-1"></p>                        
+                <img id="weather-icon" src="">                 
+                <p id="weather"></p>
+            </div>
+  
+            <div class="main_right">
+                <p id="temperature"></p>
+                <p id="rainchance"></p>
+            </div>
+        </div>
+            
+        
     </div>
     <script src="/js/app.js"></script>
 
